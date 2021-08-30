@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Lab3C {
 
 	public static void main(String[] args) {
+		@SuppressWarnings("resource")
 		Scanner scan = new Scanner(System.in);
 		System.out.print("Enter a word or words: ");
 		String word = scan.nextLine();
