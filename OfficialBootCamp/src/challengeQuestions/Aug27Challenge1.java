@@ -2,7 +2,7 @@ package challengeQuestions;
 
 import java.util.Scanner;
 
-public class SodokuGame {
+public class Aug27Challenge1 {
 
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
@@ -28,5 +28,4 @@ public class SodokuGame {
 		String lastWord = end.substring(end.lastIndexOf(" ") + 1);
 		System.out.println("The last word is \"" + lastWord + "\" with length " + lastWord.length() + ".");
 	}
-
 }
