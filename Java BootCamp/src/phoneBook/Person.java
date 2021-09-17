@@ -1,8 +1,6 @@
 package phoneBook;
 
-import java.util.Arrays;
-
-public class Person {
+public class Person{
 
 	private String fName;
 	private String mName;

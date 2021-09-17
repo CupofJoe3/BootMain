@@ -1,5 +1,6 @@
 package phoneBook;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class MenuFeatures {
@@ -9,7 +10,7 @@ public class MenuFeatures {
 				+ "Enter 2 to search your PhoneBook.\n"
 				+ "Enter 3 to delete a Person.\n"
 				+ "Enter 4 to update a Person by Phone Number.\n"
-				+ "Enter 5 to show directory.\n"
+				+ "Enter 5 to sort directory in ascending order.\n"
 				+ "Enter 6 to exit the program.\n"
 				+ "Enter here:");
 	}
@@ -80,21 +81,7 @@ public class MenuFeatures {
         }
         return temp;
 	}
-	public static Directory[] sortBook(Directory[] book) {
-		Directory[] sortedBook = new Directory[book.length];
-		for(int i = 0; i < book.length; i++)
-		{
-		    int smallest = i;
-		    for(int j = i + 1; j < book.length; j++) 
-		    {
-		        if(book[j].per.getFullName().compareTo(book[i].per.getFullName()) < 0)
-		            smallest = j;
-		    }
-		    book[i] = book[smallest];
-		    book[smallest] = sortedBook[i];
-		}	
-		return sortedBook;
-	}
+	
 	public static void viewBook(Directory[] book) {
 		for(int i = 0; i < book.length; i++) {
 			System.out.println("\nPhonebook Entry " + (i + 1) + ": \nFull Name: " + book[i].per.getFullName() 
@@ -171,5 +158,24 @@ public class MenuFeatures {
 		String numberOnly = number.replaceAll("[^0-9]", "");
 		String numFormat = String.valueOf(numberOnly).replaceFirst("(\\d{3})(\\d{3})(\\d+)", "($1)-$2-$3");
 		return numFormat;
+	}
+	public static Directory[] sortBook(Directory[] book) {
+		String[] names = new String[book.length];
+		Directory[] bookTemp = new Directory[book.length];
+		for(int i = 0; i < names.length; i++) {
+			names[i] = book[i].per.getFullName();
+		}
+		Arrays.sort(names);
+		
+		for(int i = 0; i < names.length; i++) {
+			for(int j = 0; j < names.length; j++) {
+				if(names[i].contentEquals(book[j].per.getFullName())) {
+					bookTemp[i] = book[j];
+					break;
+				}
+			}
+		}
+		
+		return bookTemp;
 	}
 }

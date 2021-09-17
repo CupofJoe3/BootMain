@@ -1,6 +1,6 @@
 package phoneBook;
 
-import java.util.*;
+import java.util.Scanner;
 
 public class MainMenu {
 
@@ -91,9 +91,10 @@ public class MainMenu {
 					MenuFeatures.viewBook(book);
 					break;
 				
-				case 5: MenuFeatures.viewBook(book);
-				
-					break;
+				case 5:
+				book = MenuFeatures.sortBook(book);
+				MenuFeatures.viewBook(book);		
+				break;
 				
 				case 6: 
 					break;
