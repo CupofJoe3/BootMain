@@ -172,19 +172,4 @@ public class MenuFeatures {
 		String numFormat = String.valueOf(numberOnly).replaceFirst("(\\d{3})(\\d{3})(\\d+)", "($1)-$2-$3");
 		return numFormat;
 	}
-	public static Directory[] updateByPhone(Directory[] book, String number) {
-		Scanner scan = new Scanner(System.in);
-		for(int i = 0; i < book.length; i++) {
-			if(book[i].per.getpNumber() == number) {
-				System.out.println("Enter your updated entry as follows with commas eg(John E Doe, 324 Main St, St Charles, MO, 63303, 8475390126):");
-				String entry = scan.nextLine();
-				if (MenuFeatures.entryCheck(entry) == true) {
-					book[i] = new Directory(entry);
-					System.out.println("Entry was updated.");
-				}
-				else {System.out.println("Invalid entry or invalid Phone Number.");}
-			}
-		}
-		return book;
-	}
 }

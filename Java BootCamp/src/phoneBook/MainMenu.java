@@ -76,8 +76,19 @@ public class MainMenu {
 					System.out.println("\nEnter the phone number you would like to update: ");
 					String number = scan.nextLine();
 					number = MenuFeatures.phoneFormat(number);
-					
-					
+					System.out.println(number);
+					for(int i = 0; i < book.length; i++) {
+						if(book[i].per.getpNumber().equals(number)) {
+							System.out.println("Enter your updated entry as follows with commas eg(John E Doe, 324 Main St, St Charles, MO, 63303, 8475390126):");
+							entry = scan.nextLine();
+							if (MenuFeatures.entryCheck(entry) == true) {
+								book[i] = new Directory(entry);
+								System.out.println("Entry was updated.");
+							}
+							else {System.out.println("Invalid entry or invalid Phone Number.");}
+						}
+					}
+					MenuFeatures.viewBook(book);
 					break;
 				
 				case 5: MenuFeatures.viewBook(book);
